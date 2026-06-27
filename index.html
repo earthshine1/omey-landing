@@ -1232,24 +1232,6 @@
   </div>
 </section>
 
-
-  <!-- MANIFESTO -->
-  <section style="padding: 120px 40px; background: #0A0A0A; color: #fff;">
-    <div style="max-width: 680px; margin: 0 auto;">
-      <img src="/assets/mark-white.png" alt="OMEY" style="height: 48px; margin-bottom: 48px; opacity: 0.9;">
-      <h2 style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 40px; color: #fff;">C'è un'isola, al largo della costa occidentale dell'Irlanda, che non è sempre un'isola.</h2>
-      <div style="display: flex; flex-direction: column; gap: 20px; font-size: 17px; line-height: 1.75; color: #A1A1AA;">
-        <p>Si chiama Omey. Non ha ponti, non ha fari, non ha strutture che la dichiarino accessibile o inaccessibile. Dipende dalla marea.</p>
-        <p>Quando l'oceano si ritira, il fondale emerge lentamente e Omey smette di essere separata: diventa una penisola. La si può raggiungere a piedi, in silenzio, seguendo un tracciato che non è sempre visibile. Quando l'acqua torna, quel passaggio scompare. L'isola resta lì, immutata, ma di nuovo isolata.</p>
-        <p style="color: #fff; font-weight: 500;">La verità funziona allo stesso modo.</p>
-        <p>Non è qualcosa che viene creata, né qualcosa che appare improvvisamente. È presente, costante, ma non sempre accessibile. Serve sapere quando guardare, da dove attraversare, cosa è rumore e cosa invece è terreno solido.</p>
-        <p style="color: #fff; font-weight: 500;">OMEY nasce da questa intuizione.</p>
-        <p>Non come strumento per "scoprire" la verità, ma come metodo per riconoscere quando è possibile raggiungerla. Non illumina tutto. Non promette completezza. Accetta l'idea che l'informazione sia frammentaria, che i segnali siano incompleti, che il contesto conti quanto il dato.</p>
-        <p style="color: #fff; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.5; border-left: 2px solid #333; padding-left: 24px; margin-top: 8px;">OMEY non è un faro. È l'istmo che emerge solo per chi sa leggere la marea.<br><br>È il punto in cui ciò che era sommerso diventa attraversabile. E dove la complessità, invece di essere esibita, viene resa orientabile.</p>
-      </div>
-    </div>
-  </section>
-
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="pricing-inner">
@@ -1401,5 +1383,81 @@
     setTimeout(typeNext, 1000);
   }
 </script>
+
+  <!-- MODALE MANIFESTO -->
+  <div id="manifesto-overlay" style="
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.92);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; transition: opacity 0.6s ease;
+    pointer-events: none;
+  ">
+    <div style="
+      max-width: 620px; width: 100%;
+      background: #0A0A0A;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 48px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    ">
+      <img src="/assets/mark-white.png" alt="OMEY" style="height: 36px; margin-bottom: 36px; opacity: 0.9;">
+      
+      <h2 style="font-size: 22px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.2; margin-bottom: 28px; color: #fff;">
+        C'è un'isola, al largo della costa occidentale dell'Irlanda, che non è sempre un'isola.
+      </h2>
+      
+      <div style="display: flex; flex-direction: column; gap: 16px; font-size: 15px; line-height: 1.75; color: #A1A1AA;">
+        <p>Si chiama Omey. Non ha ponti, non ha fari, non ha strutture che la dichiarino accessibile o inaccessibile. Dipende dalla marea.</p>
+        <p>Quando l'oceano si ritira, il fondale emerge lentamente e Omey smette di essere separata: diventa una penisola. La si può raggiungere a piedi, in silenzio, seguendo un tracciato che non è sempre visibile. Quando l'acqua torna, quel passaggio scompare. L'isola resta lì, immutata, ma di nuovo isolata.</p>
+        <p style="color: #fff; font-weight: 600;">La verità funziona allo stesso modo.</p>
+        <p>Non è qualcosa che viene creata, né qualcosa che appare improvvisamente. È presente, costante, ma non sempre accessibile. Serve sapere quando guardare, da dove attraversare, cosa è rumore e cosa invece è terreno solido.</p>
+        <p style="color: #fff; font-weight: 600;">OMEY nasce da questa intuizione.</p>
+        <p>Non come strumento per "scoprire" la verità, ma come metodo per riconoscere quando è possibile raggiungerla. Non illumina tutto. Non promette completezza. Accetta l'idea che l'informazione sia frammentaria, che i segnali siano incompleti, che il contesto conti quanto il dato.</p>
+        <p style="color: #fff; font-size: 16px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.6; border-left: 2px solid rgba(255,255,255,0.2); padding-left: 20px; margin-top: 8px;">
+          OMEY non è un faro. È l'istmo che emerge solo per chi sa leggere la marea.<br><br>
+          È il punto in cui ciò che era sommerso diventa attraversabile. E dove la complessità, invece di essere esibita, viene resa orientabile.
+        </p>
+      </div>
+
+      <button onclick="closeManifesto()" style="
+        margin-top: 36px;
+        width: 100%;
+        padding: 14px;
+        background: #fff;
+        color: #0A0A0A;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: -0.02em;
+        font-family: Inter, sans-serif;
+      ">Entra →</button>
+    </div>
+  </div>
+
+  <script>
+    function closeManifesto() {
+      const overlay = document.getElementById('manifesto-overlay');
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+      setTimeout(() => overlay.style.display = 'none', 600);
+      sessionStorage.setItem('manifesto_shown', '1');
+    }
+
+    // Mostra il modale dopo 800ms solo se non già visto in questa sessione
+    window.addEventListener('load', () => {
+      if (!sessionStorage.getItem('manifesto_shown')) {
+        setTimeout(() => {
+          const overlay = document.getElementById('manifesto-overlay');
+          overlay.style.pointerEvents = 'auto';
+          overlay.style.opacity = '1';
+        }, 800);
+      }
+    });
+  </script>
 </body>
 </html>
