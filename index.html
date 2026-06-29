@@ -4,51 +4,21 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="/assets/mark-black.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OMEY — Intelligence Reputazionale</title>
+<title>OMEY — Decision Intelligence Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --black: #0A0A0A;
-    --white: #FFFFFF;
-    --surface: #F7F7F8;
-    --border: #E5E5E7;
-    --accent: #1B2EFF;
-    --accent-light: #EEF0FF;
-    --muted: #6B7280;
-    --green: #16A34A;
-    --red: #DC2626;
-    --orange: #D97706;
+    --black: #0A0A0A; --white: #FFFFFF; --surface: #F7F7F8; --border: #E5E5E7;
+    --accent: #1B2EFF; --accent-light: #EEF0FF; --muted: #6B7280;
+    --green: #16A34A; --red: #DC2626; --orange: #D97706;
   }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--black); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--white);
-    color: var(--black);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: 64px;
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo { font-size: 18px; font-weight: 800; letter-spacing: -0.04em; color: var(--black); text-decoration: none; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; background: rgba(255,255,255,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { text-decoration: none; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.15s; }
   .nav-links a:hover { color: var(--black); }
@@ -63,47 +33,50 @@
   .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; color: var(--black); margin-bottom: 24px; }
   h1 span { color: var(--accent); }
-  .hero-desc { font-size: 18px; line-height: 1.65; color: var(--muted); margin-bottom: 40px; max-width: 480px; }
+  .hero-desc { font-size: 17px; line-height: 1.7; color: var(--muted); margin-bottom: 40px; max-width: 480px; }
   .hero-actions { display: flex; gap: 12px; align-items: center; }
   .btn-hero { font-size: 16px; font-weight: 600; color: var(--white); background: var(--black); text-decoration: none; padding: 14px 28px; border-radius: 10px; transition: opacity 0.15s; }
   .btn-hero:hover { opacity: 0.85; }
   .btn-hero-outline { font-size: 16px; font-weight: 500; color: var(--black); background: transparent; text-decoration: none; padding: 13px 28px; border-radius: 10px; border: 1.5px solid var(--border); transition: border-color 0.15s, background 0.15s; }
   .btn-hero-outline:hover { border-color: #999; background: var(--surface); }
   .hero-trust { margin-top: 40px; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
-  .hero-trust::before { content: '🔒'; font-size: 14px; }
+  .hero-trust::before { content: '⬡'; font-size: 14px; color: var(--accent); }
   .hero-visual { position: relative; }
   .report-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04), 0 20px 60px -10px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
   .report-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #6366F1); }
   .report-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
-  .report-avatar { width: 44px; height: 44px; border-radius: 10px; background: var(--black); display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; font-weight: 700; }
+  .report-avatar { width: 44px; height: 44px; border-radius: 10px; background: var(--black); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: 700; }
   .report-title { font-size: 15px; font-weight: 700; }
-  .report-subtitle { font-size: 12px; color: var(--muted); }
+  .report-subtitle { font-size: 11px; color: var(--muted); margin-top: 2px; }
   .score-section { display: flex; align-items: center; gap: 24px; padding: 20px; background: var(--surface); border-radius: 12px; margin-bottom: 20px; }
-  .score-big { font-size: 52px; font-weight: 800; letter-spacing: -0.05em; color: var(--green); line-height: 1; }
+  .score-big { font-size: 52px; font-weight: 800; letter-spacing: -0.05em; color: var(--green); line-height: 1; flex-shrink: 0; }
   .score-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-  .score-risk { display: inline-block; font-size: 12px; font-weight: 600; color: var(--green); background: #DCFCE7; padding: 3px 10px; border-radius: 100px; }
+  .score-risk { display: inline-block; font-size: 11px; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 100px; }
   .report-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; gap: 16px; }
   .report-row:last-child { border-bottom: none; }
-  .report-row-label { color: var(--muted); flex-shrink: 0; max-width: 140px; }
-  .report-row-val { font-weight: 600; display: flex; align-items: center; gap: 6px; text-align: right; flex-shrink: 0; white-space: nowrap; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .report-row-label { color: var(--muted); flex-shrink: 0; }
+  .report-row-val { font-weight: 600; display: flex; align-items: center; gap: 6px; text-align: right; flex-shrink: 0; white-space: nowrap; font-size: 12px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; }
   .dot-green { background: var(--green); }
-  .dot-red { background: var(--red); }
   .dot-orange { background: var(--orange); }
-  .typing-cursor { display: inline-block; width: 2px; height: 14px; background: var(--accent); margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: middle; }
+  .dot-red { background: var(--red); }
+  .typing-cursor { display: inline-block; width: 2px; height: 13px; background: var(--accent); margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: middle; }
   @keyframes blink { 50% { opacity: 0; } }
-  .float-badge { margin-top: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; white-space: nowrap; }
-  .float-badge-icon { width: 32px; height: 32px; border-radius: 8px; background: #DCFCE7; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .float-badge { margin-top: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+  .float-badge-icon { width: 32px; height: 32px; border-radius: 8px; background: #DCFCE7; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--green); font-weight: 800; }
 
   .logos { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 40px; }
   .logos-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 48px; justify-content: center; flex-wrap: wrap; }
-  .logos-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
-  .logo-item { font-size: 15px; font-weight: 700; color: #C4C4C4; letter-spacing: -0.02em; text-transform: uppercase; }
+  .logos-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
+  .logo-item { font-size: 14px; font-weight: 700; color: #C4C4C4; letter-spacing: -0.01em; text-transform: uppercase; }
+
+  .story-section { background: #0A0A0A; padding: 120px 40px; }
+  .story-inner { max-width: 680px; margin: 0 auto; }
 
   .demo { padding: 100px 40px; max-width: 1000px; margin: 0 auto; text-align: center; }
-  .section-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
   h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 16px; }
-  .section-desc { font-size: 17px; color: var(--muted); max-width: 560px; margin: 0 auto 48px; line-height: 1.65; }
+  .section-desc { font-size: 16px; color: var(--muted); max-width: 560px; margin: 0 auto 48px; line-height: 1.7; }
   .demo-window { background: var(--black); border-radius: 16px; overflow: hidden; box-shadow: 0 32px 80px -10px rgba(0,0,0,0.25); text-align: left; }
   .demo-topbar { display: flex; align-items: center; gap: 8px; padding: 14px 20px; background: #1A1A1A; border-bottom: 1px solid #2A2A2A; }
   .demo-dot { width: 12px; height: 12px; border-radius: 50%; }
@@ -111,18 +84,18 @@
   .demo-content { padding: 32px; display: grid; grid-template-columns: 220px 1fr; gap: 24px; min-height: 400px; }
   .demo-sidebar { border-right: 1px solid #222; padding-right: 24px; }
   .demo-logo { font-size: 16px; font-weight: 800; color: white; letter-spacing: -0.04em; margin-bottom: 24px; }
-  .demo-nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 6px; font-size: 12.5px; color: #666; margin-bottom: 2px; cursor: pointer; }
+  .demo-nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 6px; font-size: 12px; color: #666; margin-bottom: 2px; }
   .demo-nav-item.active { background: #1A1A1A; color: white; }
   .demo-main { color: white; }
   .demo-search-bar { background: #1A1A1A; border: 1px solid #333; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #888; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
   .demo-result-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .demo-company-avatar { width: 40px; height: 40px; background: #1B2EFF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: white; flex-shrink: 0; }
+  .demo-company-avatar { width: 40px; height: 40px; background: #1B2EFF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: white; flex-shrink: 0; }
   .demo-company-name { font-size: 15px; font-weight: 700; }
-  .demo-company-sub { font-size: 12px; color: #888; }
+  .demo-company-sub { font-size: 11px; color: #888; }
   .demo-score-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
   .demo-score-box { background: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 14px; }
   .demo-score-num { font-size: 28px; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 2px; }
-  .demo-score-lbl { font-size: 11px; color: #666; }
+  .demo-score-lbl { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.06em; }
   .demo-text-lines { display: flex; flex-direction: column; gap: 8px; }
   .demo-line { height: 10px; background: #1A1A1A; border-radius: 4px; animation: shimmer 2s infinite; }
   @keyframes shimmer { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
@@ -134,14 +107,14 @@
   .feature-card { background: var(--white); padding: 36px 32px; transition: background 0.15s; }
   .feature-card:hover { background: #FAFAFA; }
   .feature-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
-  .feature-title { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
-  .feature-desc { font-size: 14px; line-height: 1.65; color: var(--muted); }
+  .feature-title { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .feature-desc { font-size: 13.5px; line-height: 1.65; color: var(--muted); }
 
   .stats { padding: 80px 40px; max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; text-align: center; }
   .stat-item { padding: 40px 24px; }
   .stat-num { font-size: 48px; font-weight: 800; letter-spacing: -0.05em; color: var(--black); line-height: 1; margin-bottom: 8px; }
   .stat-num span { color: var(--accent); }
-  .stat-label { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .stat-label { font-size: 13px; color: var(--muted); line-height: 1.5; text-transform: uppercase; letter-spacing: 0.06em; }
 
   .how { padding: 100px 40px; max-width: 1000px; margin: 0 auto; }
   .how-header { text-align: center; margin-bottom: 64px; }
@@ -149,8 +122,8 @@
   .how-steps::before { content: ''; position: absolute; top: 28px; left: calc(16.66% + 28px); right: calc(16.66% + 28px); height: 1px; background: linear-gradient(90deg, var(--border), var(--accent), var(--border)); }
   .how-step { padding: 0 24px; text-align: center; }
   .how-step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--black); color: white; font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; position: relative; z-index: 1; }
-  .how-step-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.02em; }
-  .how-step-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .how-step-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.02em; }
+  .how-step-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
 
   .pricing { padding: 100px 40px; background: var(--surface); border-top: 1px solid var(--border); }
   .pricing-inner { max-width: 1100px; margin: 0 auto; }
@@ -158,24 +131,24 @@
   .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .pricing-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; position: relative; transition: box-shadow 0.15s, border-color 0.15s; }
   .pricing-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); border-color: #C0C0C0; }
-  .pricing-card.featured { border-color: var(--accent); background: var(--white); }
-  .pricing-card.featured::before { content: 'PIÙ POPOLARE'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 100px; white-space: nowrap; }
-  .pricing-name { font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .pricing-card.featured { border-color: var(--accent); }
+  .pricing-card.featured::before { content: 'MOST USED'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 100px; white-space: nowrap; }
+  .pricing-name { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
   .pricing-price { font-size: 40px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin-bottom: 4px; }
   .pricing-price sup { font-size: 20px; font-weight: 600; vertical-align: super; }
   .pricing-credits { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
   .pricing-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
   .pricing-features { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
-  .pricing-features li { font-size: 13.5px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
-  .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pricing-features li { font-size: 13px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+  .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
   .btn-pricing { display: block; width: 100%; text-align: center; font-size: 14px; font-weight: 600; padding: 12px; border-radius: 8px; text-decoration: none; transition: opacity 0.15s, background 0.15s; border: 1.5px solid var(--border); color: var(--black); background: transparent; }
   .btn-pricing:hover { background: var(--surface); }
   .btn-pricing.featured-btn { background: var(--accent); border-color: var(--accent); color: white; }
   .btn-pricing.featured-btn:hover { opacity: 0.9; }
-  .pricing-note { text-align: center; margin-top: 40px; font-size: 14px; color: var(--muted); }
+  .pricing-note { text-align: center; margin-top: 40px; font-size: 13px; color: var(--muted); }
   .pricing-note strong { color: var(--black); }
   .cost-pills { display: flex; gap: 12px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
-  .cost-pill { background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 6px 16px; font-size: 13px; font-weight: 500; color: var(--muted); }
+  .cost-pill { background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 6px 16px; font-size: 12px; font-weight: 500; color: var(--muted); }
   .cost-pill strong { color: var(--black); }
 
   .cta-section { padding: 120px 40px; text-align: center; max-width: 700px; margin: 0 auto; }
@@ -183,80 +156,17 @@
   .cta-section p { font-size: 17px; color: var(--muted); margin-bottom: 40px; }
   .cta-actions { display: flex; gap: 12px; justify-content: center; }
 
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 32px;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .footer-logo { font-size: 16px; font-weight: 800; letter-spacing: -0.04em; color: var(--black); }
-
-  .footer-nav {
-    display: flex;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-
-  .footer-col-title {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin-bottom: 12px;
-  }
-
-  .footer-col-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-col-links a {
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
+  footer { border-top: 1px solid var(--border); padding: 40px; max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; gap: 40px; flex-wrap: wrap; }
+  .footer-nav { display: flex; gap: 48px; flex-wrap: wrap; }
+  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); margin-bottom: 12px; }
+  .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
   .footer-col-links a:hover { color: var(--black); }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); gap: 20px; flex-wrap: wrap; }
   .footer-copy { font-size: 12px; color: var(--muted); }
-
-  .footer-legal {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .footer-legal a {
-    font-size: 12px;
-    color: var(--muted);
-    text-decoration: none;
-  }
-
+  .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-legal a { font-size: 12px; color: var(--muted); text-decoration: none; }
   .footer-legal a:hover { color: var(--black); }
 
   @media (max-width: 900px) {
@@ -273,14 +183,12 @@
     .footer-top { flex-direction: column; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
-
   @media (max-width: 600px) {
     .pricing-grid { grid-template-columns: 1fr; }
     .hero-actions { flex-direction: column; }
     .cta-actions { flex-direction: column; align-items: center; }
     .demo-score-row { grid-template-columns: 1fr; }
   }
-
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 </style>
@@ -291,56 +199,59 @@
 <nav>
   <a href="/" class="nav-logo"><img src="/assets/wordmark-clean-black.png" alt="OMEY" style="height:22px;display:block"></a>
   <ul class="nav-links">
-    <li><a href="#features">Capabilities</a></li>
-    <li><a href="#come-funziona">Pipeline</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#features">Platform</a></li>
+    <li><a href="#come-funziona">Architecture</a></li>
+    <li><a href="#pricing">Deployment</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="https://app.omey.it" class="btn-ghost">Accedi</a>
-    <a href="https://app.omey.it" class="btn-primary">Inizia gratis →</a>
+    <a href="https://app.omey.it" class="btn-ghost">Access</a>
+    <a href="https://app.omey.it" class="btn-primary">Run analysis →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left fade-in">
-    <div class="hero-eyebrow">Decision Intelligence Platform</div>
-    <h1>Trasforma dati pubblici in <span>intelligence operativa</span></h1>
-    <p class="hero-desc">OMEY è una piattaforma di decision intelligence che aggrega, normalizza e correla fonti pubbliche e regolamentari su entità aziendali, fornendo segnali strutturati per supporto a due diligence, compliance e risk assessment.</p>
+    <div class="hero-eyebrow">Decision Intelligence System</div>
+    <h1>Trasforma dati frammentati in <span>decision intelligence operativa</span></h1>
+    <p class="hero-desc">
+      OMEY aggrega, normalizza e correla fonti pubbliche e regolamentari su entità aziendali, costruendo un modello strutturato di segnali per supportare processi di due diligence, compliance e risk assessment.
+    </p>
     <div class="hero-actions">
-      <a href="https://app.omey.it" class="btn-hero">Avvia analisi</a>
-      <a href="#come-funziona" class="btn-hero-outline">Esplora la piattaforma</a>
+      <a href="https://app.omey.it" class="btn-hero">Avvia analisi →</a>
+      <a href="#come-funziona" class="btn-hero-outline">Esplora architettura</a>
     </div>
-    <p class="hero-trust">Accesso immediato. Nessuna integrazione richiesta.</p>
+    <p class="hero-trust">Zero integration required. Fully browser-native.</p>
   </div>
+
   <div class="hero-visual fade-in" style="transition-delay:0.15s">
     <div class="report-card">
       <div class="report-header">
         <div class="report-avatar">OT</div>
         <div>
           <div class="report-title">Omey Technologies S.r.l.</div>
-          <div class="report-subtitle">Entity resolution · Public record aggregation · Milano (IT)</div>
+          <div class="report-subtitle">Entity graph resolution · Multi-source fusion · Milan (IT)</div>
         </div>
       </div>
       <div class="score-section">
         <div class="score-big">78</div>
         <div>
           <div class="score-label">Entity Risk Signal Index</div>
-          <div class="score-risk">Signal Index · non-rating</div>
-          <div style="font-size:10px; color:#9CA3AF; margin-top:6px; font-style:italic; line-height:1.4;">Indice derivato da segnali eterogenei. Non costituisce rating finanziario, creditizio o legale.</div>
+          <div class="score-risk">Signal-based · non-deterministic rating</div>
+          <div style="font-size:10px; color:#9CA3AF; margin-top:6px; font-style:italic; line-height:1.4;">Composite signal index derived from heterogeneous public data. Not a financial, credit or legal rating.ostituisce rating finanziario, creditizio o legale.</div>
         </div>
       </div>
-      <div class="report-row"><span class="report-row-label">Sanzioni</span><span class="report-row-val"><span class="dot dot-green"></span>Nessuna evidenza in watchlist</span></div>
-      <div class="report-row"><span class="report-row-label">Protesti</span><span class="report-row-val"><span class="dot dot-green"></span>Nessuna evidenza nei registri</div>
-      <div class="report-row"><span class="report-row-label">Procedimenti</span><span class="report-row-val"><span class="dot dot-orange"></span>Segnali isolati da fonti aperte</span></div>
-      <div class="report-row"><span class="report-row-label">Media Risk</span><span class="report-row-val"><span class="dot dot-green"></span>Nessun segnale negativo indicizzato</span></div>
-      <div class="report-row" style="border:none"><span class="report-row-label">LLM Narrative</span><span class="report-row-val" style="color:var(--muted); font-weight:400; font-size:12px"><span class="typing-cursor"></span></span></div>
+      <div class="report-row"><span class="report-row-label">Sanctions</span><span class="report-row-val"><span class="dot dot-green"></span>No match in global watchlists</span></div>
+      <div class="report-row"><span class="report-row-label">Legal exposure</span><span class="report-row-val"><span class="dot dot-green"></span>No registry anomalies detected</span></div>
+      <div class="report-row"><span class="report-row-label">Investigative signals</span><span class="report-row-val"><span class="dot dot-orange"></span>Isolated open-source indicators</span></div>
+      <div class="report-row"><span class="report-row-label">Media footprint</span><span class="report-row-val"><span class="dot dot-green"></span>No adverse indexed narratives</span></div>
+      <div class="report-row" style="border:none"><span class="report-row-label">Narrative Layer</span><span class="report-row-val" style="color:var(--muted); font-weight:400; font-size:12px"><span class="typing-cursor"></span></span></div>
     </div>
     <div class="float-badge">
-      <div class="float-badge-icon">✅</div>
+      <div class="float-badge-icon">✓</div>
       <div>
-        <div style="font-size:12px; font-weight:700">Analysis complete</div>
-        <div style="font-size:11px; color:var(--muted); font-weight:400">Multi-source · Graph correlation</div>
+        <div style="font-size:12px; font-weight:700">Correlation complete</div>
+        <div style="font-size:11px; color:var(--muted); font-weight:400">Multi-source entity graph computed</div>
       </div>
     </div>
   </div>
@@ -349,47 +260,39 @@
 <!-- LOGOS -->
 <div class="logos">
   <div class="logos-inner">
-    <span class="logos-label">Data Sources &amp; Regulatory Feeds</span>
+    <span class="logos-label">Data &amp; Intelligence Sources</span>
     <span class="logo-item">OpenSanctions</span>
-    <span class="logo-item">Registro Imprese</span>
-    <span class="logo-item">ICIJ</span>
-    <span class="logo-item">EU Sanctions</span>
-    <span class="logo-item">WHOIS</span>
-    <span class="logo-item">Open Web Intelligence</span>
+    <span class="logo-item">Business Registers</span>
+    <span class="logo-item">ICIJ Datasets</span>
+    <span class="logo-item">EU Watchlists</span>
+    <span class="logo-item">WHOIS Graph</span>
+    <span class="logo-item">Open Web Signals</span>
   </div>
 </div>
 
-
 <!-- STORYTELLING -->
-<section style="background:#0A0A0A; padding: 120px 40px;">
-  <div style="max-width: 680px; margin: 0 auto;">
+<section class="story-section">
+  <div class="story-inner">
     <img src="/assets/mark-white.png" alt="OMEY" style="height:28px; display:block; margin-bottom:56px; opacity:0.8;">
-
-    <div style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#4B5563; margin-bottom:24px;">Informazione, ambiguità e segnali</div>
-
+    <div style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#4B5563; margin-bottom:24px;">Information asymmetry · Signal extraction</div>
     <h2 style="font-size:clamp(26px,4vw,40px); font-weight:800; letter-spacing:-0.04em; line-height:1.15; color:#fff; margin-bottom:48px;">
-      Non tutti i dati sono accessibili in modo diretto. Ma i segnali sono sempre presenti.
+      I sistemi economici non sono osservabili direttamente.<br>Solo i loro segnali lo sono.
     </h2>
-
     <div style="display:flex; flex-direction:column; gap:20px; font-size:16px; line-height:1.8; color:#9CA3AF;">
-      <p>OMEY è una piattaforma costruita attorno a un principio operativo: la realtà economica non è mai completamente osservabile in modo lineare.</p>
-      <p>Le entità aziendali esistono in ecosistemi informativi frammentati — registri pubblici, archivi regolamentari, footprint digitali, relazioni indirette.</p>
-
-      <p style="color:#fff; font-weight:600; font-size:17px;">OMEY non ricerca informazioni.</p>
-
-      <p>Esegue entity resolution, correlazione e normalizzazione su segnali eterogenei, rendendo leggibili strutture altrimenti non evidenti.</p>
+      <p>OMEY opera su un principio di intelligence strutturata: la realtà aziendale è distribuita su sistemi informativi eterogenei e non allineati.</p>
+      <p>Registri pubblici, infrastrutture legali, footprint digitali e relazioni indirette costituiscono un grafo informativo incompleto ma computabile.</p>
+      <p style="color:#fff; font-weight:600; font-size:17px;">OMEY non ricerca dati.</p>
+      <p>Esegue entity resolution, graph reconstruction e signal fusion su dataset pubblici ad alta frammentazione informativa.</p>
     </div>
-
     <div style="margin-top:48px; padding:28px 32px; border-left:2px solid #374151; background:rgba(255,255,255,0.03); border-radius:0 12px 12px 0;">
       <p style="font-size:17px; font-weight:600; letter-spacing:-0.02em; line-height:1.7; color:#fff; margin:0;">
-        L'obiettivo non è semplificare la realtà. È renderla analizzabile.<br><br>
-        OMEY è un layer di intelligence tra dati pubblici e decisione operativa.
+        L'obiettivo non è interpretare il rumore informativo.<br><br>
+        È trasformarlo in un modello operativo interrogabile.
       </p>
     </div>
-
     <div style="margin-top:48px;">
-      <a href="https://app.omey.it" style="display:inline-flex; align-items:center; gap:8px; background:#fff; color:#0A0A0A; font-size:15px; font-weight:700; padding:13px 28px; border-radius:10px; text-decoration:none; letter-spacing:-0.01em; transition:opacity 0.15s;">
-        Avvia piattaforma →
+      <a href="https://app.omey.it" style="display:inline-flex; align-items:center; gap:8px; background:#fff; color:#0A0A0A; font-size:15px; font-weight:700; padding:13px 28px; border-radius:10px; text-decoration:none; letter-spacing:-0.01em;">
+        Enter platform →
       </a>
     </div>
   </div>
@@ -397,9 +300,9 @@
 
 <!-- DEMO -->
 <section class="demo" id="demo">
-  <div class="section-eyebrow">Operational Demo</div>
-  <h2>Analisi entità in tempo reale</h2>
-  <p class="section-desc">Inserisci ragione sociale o identificativo fiscale. Il sistema esegue ingestion, matching e correlazione multi-source in meno di un minuto.</p>
+  <div class="section-eyebrow">Operational System Demo</div>
+  <h2>Entity intelligence in real time</h2>
+  <p class="section-desc">Inserisci ragione sociale o identificativo fiscale. Il sistema esegue ingestion, matching probabilistico e correlazione multi-source in meno di 60 secondi.</p>
   <div class="demo-window">
     <div class="demo-topbar">
       <div class="demo-dot" style="background:#FF5F57"></div>
@@ -410,17 +313,17 @@
     <div class="demo-content">
       <div class="demo-sidebar">
         <div class="demo-logo">OMEY</div>
-        <div class="demo-nav-item active">🔍 Query entity graph</div>
-        <div class="demo-nav-item">📋 Audit trail</div>
-        <div class="demo-nav-item">🔔 Signal monitoring</div>
-        <div class="demo-nav-item">💳 Compute allocation</div>
+        <div class="demo-nav-item active">⬡ Query entity graph</div>
+        <div class="demo-nav-item">▤ Audit trail</div>
+        <div class="demo-nav-item">◎ Signal monitoring</div>
+        <div class="demo-nav-item">⬡ Compute allocation</div>
       </div>
       <div class="demo-main">
-        <div class="demo-search-bar">🔍 <span style="color:#555">Omey Technologies S.r.l. · P.IVA 99988877601</span><span style="margin-left:auto; background:#1B2EFF; color:white; font-size:11px; font-weight:600; padding:3px 10px; border-radius:6px">Deep</span></div>
+        <div class="demo-search-bar">⬡ <span style="color:#555">Omey Technologies S.r.l. · P.IVA 99988877601</span><span style="margin-left:auto; background:#1B2EFF; color:white; font-size:11px; font-weight:600; padding:3px 10px; border-radius:6px">Deep</span></div>
         <div class="demo-result-header">
           <div class="demo-company-avatar">OT</div>
-          <div><div class="demo-company-name">Omey Technologies S.r.l.</div><div class="demo-company-sub">P.IVA 99988877601 · Milano (MI)</div></div>
-          <div style="margin-left:auto; background:#DCFCE7; color:#16A34A; font-size:12px; font-weight:600; padding:4px 12px; border-radius:100px">ESI: 82</div>
+          <div><div class="demo-company-name">Omey Technologies S.r.l.</div><div class="demo-company-sub">Entity resolved · Multi-source graph · Milano (IT)</div></div>
+          <div style="margin-left:auto; background:#EEF0FF; color:#1B2EFF; font-size:11px; font-weight:700; padding:4px 12px; border-radius:100px; white-space:nowrap;">ESI: 82</div>
         </div>
         <div class="demo-score-row">
           <div class="demo-score-box"><div class="demo-score-num" style="color:#16A34A">82</div><div class="demo-score-lbl">Entity Signal Index</div></div>
@@ -433,9 +336,7 @@
           <div class="demo-line" style="width:94%"></div>
           <div class="demo-line" style="width:75%"></div>
         </div>
-        <div style="margin-top:16px; font-size:10px; color:#444; line-height:1.5; font-style:italic;">
-          Indicatori derivati da fonti pubbliche e modelli probabilistici. Non costituiscono valutazione ufficiale.
-        </div>
+        <div style="margin-top:16px; font-size:10px; color:#444; line-height:1.5; font-style:italic;">Indicatori derivati da fonti pubbliche e modelli probabilistici. Non costituiscono valutazione ufficiale.</div>
       </div>
     </div>
   </div>
@@ -445,39 +346,51 @@
 <section class="features" id="features">
   <div class="features-inner">
     <div class="features-header fade-in">
-      <div class="section-eyebrow">Capabilities</div>
-      <h2>Architettura di intelligence<br>modulare</h2>
-      <p class="section-desc">OMEY integra data ingestion, entity resolution e signal scoring in un unico layer operativo.</p>
+      <div class="section-eyebrow">Platform Capabilities</div>
+      <h2>Modular intelligence architecture</h2>
+      <p class="section-desc">OMEY integra data ingestion, entity resolution e signal scoring in un unico layer operativo per decision systems.</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card fade-in"><div class="feature-icon">🛡️</div><div class="feature-title">Sanctions &amp; Watchlists</div><p class="feature-desc">Cross-referencing automatizzato su liste globali di sanzioni e blacklist regolamentari.</p></div>
-      <div class="feature-card fade-in" style="transition-delay:0.1s"><div class="feature-icon">🏢</div><div class="feature-title">Ownership Graph Intelligence</div><p class="feature-desc">Ricostruzione delle strutture proprietarie e delle relazioni societarie multi-livello.</p></div>
-      <div class="feature-card fade-in" style="transition-delay:0.2s"><div class="feature-icon">📰</div><div class="feature-title">Media &amp; Adverse Signals</div><p class="feature-desc">Analisi semantica di fonti aperte per identificazione di eventi rilevanti e segnali negativi.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">⚖️</div><div class="feature-title">Regulatory Records</div><p class="feature-desc">Integrazione con registri ufficiali per procedure, insolvenze e anomalie legali.</p></div>
-      <div class="feature-card fade-in" style="transition-delay:0.1s"><div class="feature-icon">🌐</div><div class="feature-title">Digital Footprint Analysis</div><p class="feature-desc">Valutazione della presenza digitale come segnale proxy di stabilità operativa.</p></div>
-      <div class="feature-card fade-in" style="transition-delay:0.2s"><div class="feature-icon">🤖</div><div class="feature-title">LLM Narrative Layer</div><p class="feature-desc">Sintesi generativa dei segnali in linguaggio naturale per supporto decisionale umano.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">🛡️</div><div class="feature-title">Sanctions Intelligence</div><p class="feature-desc">Cross-matching automatizzato su watchlists globali, liste UE, OFAC, UN e dataset regolamentari strutturati.</p></div>
+      <div class="feature-card fade-in" style="transition-delay:0.1s"><div class="feature-icon">🏢</div><div class="feature-title">Ownership Graph Intelligence</div><p class="feature-desc">Ricostruzione multilivello di strutture proprietarie, catene di controllo e beneficiari effettivi.</p></div>
+      <div class="feature-card fade-in" style="transition-delay:0.2s"><div class="feature-icon">📰</div><div class="feature-title">Adverse Signal Detection</div><p class="feature-desc">Analisi semantica su fonti aperte per identificazione di eventi rilevanti e segnali negativi indicizzati.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">⚖️</div><div class="feature-title">Regulatory Intelligence</div><p class="feature-desc">Integrazione con registri ufficiali per procedure concorsuali, insolvenze e anomalie legali documentate.</p></div>
+      <div class="feature-card fade-in" style="transition-delay:0.1s"><div class="feature-icon">🌐</div><div class="feature-title">Digital Footprint Mapping</div><p class="feature-desc">Valutazione della presenza digitale come segnale proxy di stabilità operativa e coerenza identitaria.</p></div>
+      <div class="feature-card fade-in" style="transition-delay:0.2s"><div class="feature-icon">🤖</div><div class="feature-title">Narrative Synthesis Layer</div><p class="feature-desc">Traduzione LLM dei segnali aggregati in insight operativi strutturati per decision-making umano.</p></div>
     </div>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats fade-in">
-  <div class="stat-item"><div class="stat-num">6M<span>+</span></div><div class="stat-label">Entità aziendali<br>indicizzate</div></div>
-  <div class="stat-item"><div class="stat-num">&lt;<span>60</span>s</div><div class="stat-label">Tempo medio<br>di elaborazione</div></div>
-  <div class="stat-item"><div class="stat-num">20<span>+</span></div><div class="stat-label">Fonti strutturate<br>per entità</div></div>
+  <div class="stat-item"><div class="stat-num">6M<span>+</span></div><div class="stat-label">Entities indexed</div></div>
+  <div class="stat-item"><div class="stat-num">&lt;<span>60</span>s</div><div class="stat-label">End-to-end processing</div></div>
+  <div class="stat-item"><div class="stat-num">20<span>+</span></div><div class="stat-label">Structured sources</div></div>
 </div>
 
 <!-- HOW IT WORKS -->
 <section class="how" id="come-funziona">
   <div class="how-header fade-in">
-    <div class="section-eyebrow">Pipeline di analisi</div>
-    <h2>Tre stadi, un intelligence layer</h2>
-    <p class="section-desc">Nessuna integrazione infrastrutturale richiesta. Operativo da browser in pochi secondi.</p>
+    <div class="section-eyebrow">Processing Pipeline</div>
+    <h2>Three stages. One intelligence layer.</h2>
+    <p class="section-desc">Nessuna integrazione infrastrutturale richiesta. Operativo via browser in pochi secondi.</p>
   </div>
   <div class="how-steps">
-    <div class="how-step fade-in"><div class="how-step-num">1</div><div class="how-step-title">Entity Identification</div><p class="how-step-desc">Normalizzazione e disambiguazione dell'entità target da ragione sociale, P.IVA o identificativo legale.</p></div>
-    <div class="how-step fade-in" style="transition-delay:0.15s"><div class="how-step-num">2</div><div class="how-step-title">Signal Aggregation</div><p class="how-step-desc">Ingestion da fonti pubbliche, dataset strutturati e registri regolamentari per costruzione del profilo segnali.</p></div>
-    <div class="how-step fade-in" style="transition-delay:0.3s"><div class="how-step-num">3</div><div class="how-step-title">Graph Correlation</div><p class="how-step-desc">Costruzione della rete relazionale, scoring probabilistico e sintesi narrativa LLM in meno di 60 secondi.</p></div>
+    <div class="how-step fade-in">
+      <div class="how-step-num">1</div>
+      <div class="how-step-title">Entity Identification</div>
+      <p class="how-step-desc">Normalizzazione e disambiguazione dell'entità target da ragione sociale, P.IVA o identificativo legale.</p>
+    </div>
+    <div class="how-step fade-in" style="transition-delay:0.15s">
+      <div class="how-step-num">2</div>
+      <div class="how-step-title">Signal Aggregation</div>
+      <p class="how-step-desc">Ingestion da fonti pubbliche, dataset strutturati e registri regolamentari per costruzione del profilo segnali.</p>
+    </div>
+    <div class="how-step fade-in" style="transition-delay:0.3s">
+      <div class="how-step-num">3</div>
+      <div class="how-step-title">Graph Correlation</div>
+      <p class="how-step-desc">Costruzione della rete relazionale, scoring probabilistico e sintesi narrativa LLM in meno di 60 secondi.</p>
+    </div>
   </div>
 </section>
 
@@ -485,34 +398,34 @@
 <section class="pricing" id="pricing">
   <div class="pricing-inner">
     <div class="pricing-header fade-in">
-      <div class="section-eyebrow">Pricing</div>
-      <h2>Modello basato su utilizzo computazionale</h2>
-      <p class="section-desc">La piattaforma opera su unità di analisi (crediti). Nessun abbonamento vincolante. I crediti non scadono.</p>
+      <div class="section-eyebrow">Deployment Model</div>
+      <h2>Usage-based computational access</h2>
+      <p class="section-desc">La piattaforma opera su unità computazionali di analisi (crediti). Nessun abbonamento vincolante. I crediti non scadono.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card fade-in">
         <div class="pricing-name">Starter</div><div class="pricing-price"><sup>€</sup>49</div><div class="pricing-credits">10 crediti · +IVA</div><div class="pricing-divider"></div>
-        <ul class="pricing-features"><li>10 report Snapshot</li><li>3 report Standard</li><li>1 report Deep</li><li>PDF scaricabile</li><li>Grafo connessioni</li></ul>
-        <a href="https://app.omey.it" class="btn-pricing">Inizia →</a>
+        <ul class="pricing-features"><li>10 Snapshot queries</li><li>3 Standard analyses</li><li>1 Deep analysis</li><li>PDF export</li><li>Ownership graph</li></ul>
+        <a href="https://app.omey.it" class="btn-pricing">Get started →</a>
       </div>
       <div class="pricing-card featured fade-in" style="transition-delay:0.1s">
         <div class="pricing-name">Business</div><div class="pricing-price"><sup>€</sup>199</div><div class="pricing-credits">50 crediti · +IVA</div><div class="pricing-divider"></div>
-        <ul class="pricing-features"><li>50 report Snapshot</li><li>16 report Standard</li><li>6 report Deep</li><li>PDF scaricabile</li><li>Grafo connessioni</li><li>Drill-down su soci</li></ul>
-        <a href="https://app.omey.it" class="btn-pricing featured-btn">Acquista →</a>
+        <ul class="pricing-features"><li>50 Snapshot queries</li><li>16 Standard analyses</li><li>6 Deep analyses</li><li>PDF export</li><li>Ownership graph</li><li>Entity drill-down</li></ul>
+        <a href="https://app.omey.it" class="btn-pricing featured-btn">Deploy →</a>
       </div>
       <div class="pricing-card fade-in" style="transition-delay:0.2s">
         <div class="pricing-name">Pro</div><div class="pricing-price"><sup>€</sup>499</div><div class="pricing-credits">150 crediti · +IVA</div><div class="pricing-divider"></div>
-        <ul class="pricing-features"><li>150 report Snapshot</li><li>50 report Standard</li><li>18 report Deep</li><li>PDF scaricabile</li><li>Grafo connessioni</li><li>Drill-down su soci</li><li>Priorità supporto</li></ul>
-        <a href="https://app.omey.it" class="btn-pricing">Acquista →</a>
+        <ul class="pricing-features"><li>150 Snapshot queries</li><li>50 Standard analyses</li><li>18 Deep analyses</li><li>PDF export</li><li>Ownership graph</li><li>Entity drill-down</li><li>Priority compute</li></ul>
+        <a href="https://app.omey.it" class="btn-pricing">Deploy →</a>
       </div>
       <div class="pricing-card fade-in" style="transition-delay:0.3s">
         <div class="pricing-name">Enterprise</div><div class="pricing-price"><sup>€</sup>1490</div><div class="pricing-credits">500 crediti · +IVA</div><div class="pricing-divider"></div>
-        <ul class="pricing-features"><li>500 report Snapshot</li><li>166 report Standard</li><li>62 report Deep</li><li>PDF scaricabile</li><li>Grafo connessioni</li><li>Drill-down su soci</li><li>Account dedicato</li><li>API access (soon)</li></ul>
-        <a href="https://app.omey.it/enterprise" class="btn-pricing">Contattaci →</a>
+        <ul class="pricing-features"><li>500 Snapshot queries</li><li>166 Standard analyses</li><li>62 Deep analyses</li><li>PDF export</li><li>Ownership graph</li><li>Entity drill-down</li><li>Dedicated account</li><li>API access (coming)</li></ul>
+        <a href="https://app.omey.it/enterprise" class="btn-pricing">Contact us →</a>
       </div>
     </div>
     <div class="pricing-note fade-in">
-      <strong>Capacità computazionale per analisi entity-level</strong>
+      <strong>Unità computazionali per analisi entity-level</strong>
       <div class="cost-pills">
         <div class="cost-pill"><strong>Snapshot</strong> — 1 credito</div>
         <div class="cost-pill"><strong>Standard</strong> — 3 crediti</div>
@@ -524,11 +437,11 @@
 
 <!-- CTA -->
 <section class="cta-section fade-in">
-  <div class="section-eyebrow">Inizia oggi</div>
-  <h2>Decision intelligence,<br>senza frizione infrastrutturale.</h2>
-  <p>Attiva l'accesso e inizia a interrogare entità in pochi secondi. 2 crediti di analisi inclusi.</p>
+  <div class="section-eyebrow">Operational Access</div>
+  <h2>Decision intelligence<br>at operational speed.</h2>
+  <p>Attiva la piattaforma e inizia a interrogare entità in pochi secondi. 2 crediti di analisi inclusi.</p>
   <div class="cta-actions">
-    <a href="https://app.omey.it" class="btn-hero">Avvia piattaforma</a>
+    <a href="https://app.omey.it" class="btn-hero">Launch platform</a>
     <a href="https://app.omey.it/enterprise" class="btn-hero-outline">Enterprise</a>
   </div>
 </section>
@@ -538,20 +451,20 @@
   <div class="footer-top">
     <div class="footer-logo">
       <img src="/assets/wordmark-clean-black.png" alt="OMEY" style="height:20px;display:block;margin-bottom:12px">
-      <div style="font-size:12px; color:var(--muted); line-height:1.6; max-width:220px;">Piattaforma di intelligence informativa. Non fornisce rating finanziari, creditizi o giudizi legali.</div>
+      <div style="font-size:12px; color:var(--muted); line-height:1.6; max-width:240px;">OMEY is an intelligence platform for structured decision support. It does not provide financial, credit or legal ratings.</div>
     </div>
     <div class="footer-nav">
       <div>
-        <div class="footer-col-title">Piattaforma</div>
+        <div class="footer-col-title">Platform</div>
         <ul class="footer-col-links">
           <li><a href="https://app.omey.it">Accedi</a></li>
           <li><a href="https://app.omey.it">Registrati</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#pricing">Deployment</a></li>
           <li><a href="https://app.omey.it/enterprise">Enterprise</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Legale</div>
+        <div class="footer-col-title">Legal</div>
         <ul class="footer-col-links">
           <li><a href="https://app.omey.it/termini">Termini e Condizioni</a></li>
           <li><a href="https://app.omey.it/privacy">Privacy Policy</a></li>
@@ -559,7 +472,7 @@
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Supporto</div>
+        <div class="footer-col-title">Support</div>
         <ul class="footer-col-links">
           <li><a href="https://app.omey.it/contatti">Contatti</a></li>
           <li><a href="mailto:support@omey.it">support@omey.it</a></li>
@@ -571,7 +484,7 @@
     <div style="width:100%; padding-bottom:20px; font-size:11px; color:#9CA3AF; line-height:1.6; font-style:italic; border-bottom:1px solid var(--border); margin-bottom:20px;">
       OMEY is a data aggregation and information intelligence platform. It does not provide ratings, credit assessments, or legal determinations. All outputs are derived from public sources and probabilistic models. Independent professional validation is required for any operational decision.
     </div>
-    <div class="footer-copy">© 2026 OMEY · P.IVA italiana</div>
+    <div class="footer-copy">© 2026 OMEY</div>
     <div class="footer-legal">
       <a href="https://app.omey.it/privacy">Privacy</a>
       <a href="https://app.omey.it/termini">Termini</a>
@@ -587,7 +500,12 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  const texts = ["Nessun segnale critico rilevato","Struttura proprietaria verificabile","Dati pubblici aggregati","Supporto alla valutazione interna"];
+  const texts = [
+    "Nessun segnale critico rilevato",
+    "Struttura proprietaria verificabile",
+    "Dati pubblici aggregati e correlati",
+    "Supporto alla valutazione interna"
+  ];
   let ti = 0, ci = 0;
   const lastVal = document.querySelector('.report-row:last-child .report-row-val');
   if (lastVal) {
@@ -601,7 +519,5 @@
     setTimeout(typeNext, 1000);
   }
 </script>
-
-
 </body>
 </html>
